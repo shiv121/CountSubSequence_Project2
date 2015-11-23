@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Subsequence detector</title>
+    <script>
+        var piVar = "3.14159265358979323846264";
+        //Maitaining a counter to recursively calculate all 3s that follow a 2 after a 1
+        var cntr = 0;
+        countsubsequence(1, 0);
+
+        function countsubsequence(x, y) {
+            var alpha;
+            for (var i = y; i < piVar.length; i++) {
+                alpha = piVar.charAt(i);
+                if (x == "1" && alpha == "1") {
+                    countsubsequence("2", i + 1);
+                }
+                if (x == "2" && alpha == "2") {
+                    countsubsequence("3", i + 1);
+                }
+                if (x == "3" && alpha == "3") {
+                    cntr++;
+                    countsubsequence("3", i + 1);
+                } else {
+                    continue;
+                }
+            }
+        }
+        alert("The number of subsequences of 123 that occur within the first " + piVar.length + " digits of pi is " + cntr);
+    </script>
+</head>
+
+<body>
+    <!-- page content -->
+</body>
+
+</html>
